@@ -20,10 +20,8 @@ def sms_reply():
     reply = fetch_reply(msg, phone_no)
 
     # Create reply
-    resp = MessagingResponse()
-    resp.message(reply)
 
-    return str(resp)
+    return str(MessagingResponse().message(reply))
 
 
 if __name__ == "__main__":
