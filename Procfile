@@ -1,1 +1,1 @@
-web gunicorn app:wbot
+web gunicorn app:app
