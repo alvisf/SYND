@@ -23,7 +23,6 @@ def sms_reply():
     # Create reply
     resp=MessagingResponse()
     resp.message(reply)
-
     return str(resp)
 
 
