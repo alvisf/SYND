@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "Send Post Request to https://whatsappbot1999.herokuapp.com/sms"
+    return "Send Post Request to /sms"
 
 
 @app.route("/sms", methods=['POST'])
