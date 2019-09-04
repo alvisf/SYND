@@ -1,14 +1,13 @@
-from flask import Flask, request
+from flask import Flask, request, render_template, url_for
 from twilio.twiml.messaging_response import MessagingResponse
 
 from reply import fetch_reply
 
-app = Flask(__name__)
-
-
+app = Flask(__name__, template_folder='templates')
 @app.route("/")
-def hello():
-    return "Send Post Request to /sms"
+def index():
+
+    return render_template('index.html')
 
 
 @app.route("/sms", methods=['POST'])
