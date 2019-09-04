@@ -3,7 +3,7 @@
 body {
   margin: 0%;
   padding: 0;
-  background: url("backbank.jpg");
+  background: ("backbank.jpg");
   /* display: flex; */
   justify-content: top;
   align-items: top;
