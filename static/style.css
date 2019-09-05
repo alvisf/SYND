@@ -3,7 +3,7 @@
 body {
   margin: 0%;
   padding: 0;
-  background: ("backbank.jpg");
+  background-image: url("backbank.jpg");
   /* display: flex; */
   justify-content: top;
   align-items: top;
@@ -35,7 +35,7 @@ h1 {
   color: #eb6a0f;
   height: 75px;
   align-content: center;
-  padding-left: 15%;
+  padding-left: 0.1%;
   padding-top: 15px;
   margin: 0%;
   font-size: 2.2em;
