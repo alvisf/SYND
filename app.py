@@ -22,7 +22,7 @@ def send_msg(x):
     from_whatsapp_number = 'whatsapp:+14155238886',
     print(from_whatsapp_number)
     # replace this number with your own WhatsApp Messaging number
-    to_whatsapp_number = 'whatsapp:+919677051645'
+    to_whatsapp_number = 'whatsapp:+917401572418'
 
     client.messages.create(body=x,
                            from_=from_whatsapp_number,
