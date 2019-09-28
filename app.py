@@ -57,7 +57,7 @@ def sms_reply():
 
     # Create reply
     if language != "en":
-        reply = translator.translate(reply, dest='hi')
+        reply = translator.translate(reply, dest=language)
     resp = MessagingResponse()
     resp.message(reply)
 
