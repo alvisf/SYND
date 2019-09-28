@@ -56,11 +56,11 @@ def sms_reply():
 
 
     num_media = int(request.values.get("NumMedia"))
-    response = MessagingResponse()
+    resp = MessagingResponse()
     if not num_media:
-        msg = response.message("Send us an image!")
+        msg = resp.message("Send us an image!")
     else:
-        msg = response.message("Thanks for the image(s).")
+        msg = resp.message("Thanks for the image(s).")
     msg.media(num_media)
 
 
@@ -73,7 +73,7 @@ def sms_reply():
     # Create reply
     if language != "en":
         reply = translator.translate(reply, dest=language).text
-    resp = MessagingResponse()
+    #resp = MessagingResponse()
     resp.message(reply)
 
     return str(resp)
