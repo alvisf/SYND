@@ -49,15 +49,15 @@ def sms_reply():
     """Respond to incoming calls with a simple text message."""
     # Fetch the message
     msg = request.form.get('Body')
-    if(translator.detect(msg).lang != "en"):
-        language = translator.detect(msg).lang
-        msg = translator.translate(msg).text
+   # if(translator.detect(msg).lang != "en"):
+    #    language = translator.detect(msg).lang
+     #   msg = translator.translate(msg).text
     phone_no = request.form.get('From')
     reply = fetch_reply(msg, phone_no)
 
     # Create reply
-    if language != "en":
-        reply = translator.translate(reply, dest=language)
+   # if language != "en":
+    #    reply = translator.translate(reply, dest=language)
     resp = MessagingResponse()
     resp.message(reply)
 
