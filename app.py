@@ -29,7 +29,7 @@ def send_msg(x,y):
 
     client.messages.create(body=x,
                            from_=from_whatsapp_number,
-                           to=to_whatsapp_number,media_url=["https://demo.twilio.com/owl.png"] )
+                           to=to_whatsapp_number)
 
 
 app = Flask(__name__, template_folder='templates')
@@ -47,23 +47,12 @@ def sendingmsg():
     send_msg(msg,phnum)
     return render_template('index.html')
 
-int num_media
+
 @app.route("/sms", methods=['POST'])
 def sms_reply():
     """Respond to incoming calls with a simple text message."""
     # Fetch the message
     msg = request.form.get('Body')
-
-
-    num_media = int(request.values.get("NumMedia"))
-    resp = MessagingResponse()
-    if not num_media:
-        msg = resp.message("Send us an image!")
-    else:
-        msg = resp.message("Thanks for the image(s).")
-    msg.media(num_media)
-
-
     language = translator.detect(msg).lang
     if(translator.detect(msg).lang != "en"):
         msg = translator.translate(msg).text
@@ -73,7 +62,7 @@ def sms_reply():
     # Create reply
     if language != "en":
         reply = translator.translate(reply, dest=language).text
-    #resp = MessagingResponse()
+    resp = MessagingResponse()
     resp.message(reply)
 
     return str(resp)
