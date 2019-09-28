@@ -15,21 +15,23 @@ auth_token = '749bf3da242c6716be74bf2e1465805f'
 client = Client(account_sid, auth_token)
 
 
-def send_msg(x,y):
+def send_msg(x,y,z):
     # client credentials are read from TWILIO_ACCOUNT_SID and AUTH_TOKEN
 
     # this is the Twilio sandbox testing number
     from_whatsapp_number = 'whatsapp:+14155238886',
     # print(from_whatsapp_number)
     # replace this number with your own WhatsApp Messaging number
-    if y is None:
+    media_url_link=z
+    if type(y) is not int:
         to_whatsapp_number = 'whatsapp:+919677051645'
     else:
         to_whatsapp_number = 'whatsapp:+91'+ str(y)
 
     client.messages.create(body=x,
                            from_=from_whatsapp_number,
-                           to=to_whatsapp_number)
+                           to=to_whatsapp_number,
+                           media_url=[media_url_link])
 
 
 app = Flask(__name__, template_folder='templates')
@@ -41,10 +43,10 @@ def index():
 
 @app.route("/", methods=['POST'])
 def sendingmsg():
-    phnum = None
     msg = request.form['text']
-    phnum = request.form['text']
-    send_msg(msg,phnum)
+    phnum = request.form['phno']
+    murl = request.form['murl']
+    send_msg(msg,phnum,murl)
     return render_template('index.html')
 
 
@@ -62,6 +64,20 @@ def sms_reply():
     # Create reply
     if language != "en":
         reply = translator.translate(reply, dest=language).text
+    resp = MessagingResponse()
+    resp.message(reply)
+
+    return str(resp)
+
+@app.route("/appstat", methods=['POST'])
+def appstats():
+    """Respond to incoming calls with a simple text message."""
+    # Fetch the message
+    msg = request.form.get('Body')
+
+    
+    reply = msg.status
+
     resp = MessagingResponse()
     resp.message(reply)
 

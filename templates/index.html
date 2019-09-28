@@ -1,91 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <!-- <link rel="stylesheet" href="../static/style.css" /> -->
+
+  <link
       rel="stylesheet"
       href="{{ url_for('static', filename='style.css')
 
     }}"
     />
 
-    <title>Syndicate Bank</title>
-  </head>
-  <header>
+    <script type=text/javascript src="{{
+      url_for('static', filename='drop.js') }}"></script>
+
+  <!-- <link rel="stylesheet" href="styles.css" /> -->
+  <!-- <script src="../static/drop.js"></script> -->
+ 
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="{{url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
+  
+  <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>-->
+  <!--<script>
+    $(document).ready(function () {
+      $("button").click(function () {
+        $(".add").append("display", "block");
+      });
+
+    });
+  </script>-->
+
+  <title>Syndicate Bank</title>
+</head>
+<header>
+
+</header>
+
+<body>
+  <ul>
     <div class="head">
-      <h1 align="center">SYND WHATSAPP MESSAGER</h1>
+      <!-- <img src="logo.png" /> -->
+      <h1>SYND WHATSAPP MESSAGER</h1>
     </div>
-  </header>
-  <body>
-    <form action="/" , method="POST">
-      <br /><br /><br /><br /><br /><br /><br />
-      <div><span>To:</span></div>
+
+    <li><a href="index.html">MESSENGER</a></li>
+    <li><a href="second.html">LOAN APPLICATION</a></li>
+    <li><a href="third.html"> &emsp;&emsp; STATS &emsp;&emsp; </a></li>
+    <li><a href="fourth.html">LIVE CHAT</a></li>
+    <li><a href="fifth.html">TRIGGER</a></li>
+
+  </ul>
+  <form action="/" , method="POST">
+    <div class="set">
+      <br /><br /><br /><br /><br /><br /><br /><br />
+      <div><span class="span">To:</span></div>
       <div class="container">
         <div>
-          <label>
-            <input type="checkbox" name="" />
-            <span>Current</span>
-          </label>
+          <div class="multiselect ">
+            <div class="selectBox" onclick="showChecktypes()">
+              <select>
+                <option>Account Type</option>
+              </select>
+              <div class="overSelect"></div>
+            </div>
+            <div id="types" class="box">
+              <label for="one">
+                <input type="checkbox" class="tick" id="one" />Current</label>
+              <label for="two">
+                <input type="checkbox" id="two" />Savings</label>
+            </div>
+          </div>
         </div>
         <div>
-          <label>
-            <input type="checkbox" name="" />
-            <span>Savings</span>
-          </label>
+          <div class="multiselect">
+            <div class="selectBox" onclick="showChecktypes2()">
+              <select>
+                <option>Card Type</option>
+              </select>
+              <div class="overSelect"></div>
+            </div>
+            <div id="types2">
+              <label for="one">
+                <input type="checkbox" id="one" />Credit card</label>
+              <label for="two">
+                <input type="checkbox" id="two" />Debit Card</label>
+            </div>
+          </div>
         </div>
         <div>
-          <label>
-            <input type="checkbox" name="" />
-            <span>Loan</span>
-          </label>
+          <div class="multiselect">
+            <div class="selectBox" onclick="showChecktypes3()">
+              <select>
+                <option>Loan Availed</option>
+              </select>
+              <div class="overSelect"></div>
+            </div>
+            <div id="types3">
+              <label for="one">
+                <input type="checkbox" id="one" />availed</label>
+              <label for="two">
+                <input type="checkbox" id="two" />not availed</label>
+            </div>
+          </div>
         </div>
         <div>
-          <label>
-            <input type="checkbox" name="" />
-            <span>{Future}</span>
-          </label>
+          <div class="multiselect">
+            <div class="selectBox" onclick="showChecktypes4()">
+              <select>
+                <option>annual income</option>
+              </select>
+              <div class="overSelect"></div>
+            </div>
+            <div id="types4">
+              <label for="one">
+                <input type="checkbox" id="one" />0-1 lakh</label>
+              <label for="two">
+                <input type="checkbox" id="two" />1-3 lakhs</label>
+              <label for="four">
+                <input type="checkbox" id="four" />3-5 lakhs</label>
+              <label for="four">
+                <input type="checkbox" id="four" />5-8 lakhs</label>
+              <label for="four">
+                <input type="checkbox" id="four" />more than 8 lakhs</label>
+            </div>
+          </div>
         </div>
-        <div>
-          <label>
-            <input type="checkbox" name="" />
-            <span>{Future}</span>
-          </label>
-        </div>
-        <div>
-          <label>
-            <input type="checkbox" name="" />
-            <span>{Future}</span>
-          </label>
-        </div>
-        <div>
-          <label>
-            <input type="checkbox" name="" />
-            <span>{Future}</span>
-          </label>
-        </div>
-        <div>
-          <label>
-            <input type="checkbox" name="" />
-            <span>{Future}</span>
-          </label>
-        </div>
-        <div>
-          <label>
-            <input type="checkbox" name="" />
-            <span>{Future}</span>
-          </label>
-        </div>
+        <p>PHONE NO :</p><textarea name="phno" class="phno" rows="1" cols="25"></textarea>
       </div>
 
-      <span>Message:</span>
+      <span class="span">Message:</span>
       <div class="container1">
-        <textarea name="text" rows="10" cols="250"></textarea>
+        <textarea name="text" rows="8" cols="250"></textarea>
+      </div>
+      <div class="add">
+        <input type="text" name="murl" placeholder="Enter The URL of the media" />
+        <button class="one">+</button>
       </div>
       <div class="container2">
-        <button class="btn btn1" type="submit">SEND</button>
+        <button class="bttn btn-primary">SEND</button>
       </div>
-    </form>
-  </body>
+    </div>
+  </form>
+</body>
+
 </html>

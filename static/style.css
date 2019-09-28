@@ -1,15 +1,28 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins");
 
+header {
+  margin-top: 0px;
+}
+
+* {
+  text-transform: capitalize;
+  margin: 0px;
+
+}
+
 body {
   margin: 0%;
+  margin-top: 0px;
   padding: 0;
-  background-image: url("backbank.jpg");
+  background: url("backbank.jpg");
   /* display: flex; */
   justify-content: top;
   align-items: top;
   /* min-height: 100vh; */
   font-family: "Poppins", sans-serif;
   float: bottom;
+  z-index: -100;
+  text-transform: capitalize;
 }
 
 span {
@@ -29,19 +42,87 @@ span {
   border: none;
   margin-bottom: 25px;
   float: left;
-  z-index: 100;
+  font-weight: 900;
+  /* text-shadow: 2px 2px 2px #ffffff; */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #fff;
+
 }
+
 h1 {
-  color: #eb6a0f;
+  color: #f1e67d;
   height: 75px;
   align-content: center;
-  padding-left: 0.1%;
-  padding-top: 15px;
+  padding-left: 15%;
+  padding-top: 14px;
   margin: 0%;
   font-size: 2.2em;
-  background: #f1e67d;
-  z-index: -1000;
+  background: #eb6a0f;
   margin-left: 280px;
+
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  margin-left: 100px;
+  margin-right: 100px;
+
+  margin-bottom: 20px;
+  margin-top: 0px;
+}
+
+.menu-bar {
+  background: #eb6a0f;
+  height: 145px;
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  /* margin-top: 89px; */
+  padding: 0;
+  overflow: hidden;
+  background-color: #eb6a0f;
+  position: fixed;
+  top: 0;
+  /* width: 100%; */
+  z-index: 200;
+}
+
+li {
+  float: left;
+  /* margin-left: 2px; */
+}
+
+li:nth-child(odd) {
+  float: left;
+  border-left: solid;
+  border-right: solid;
+  border-color: #f1e57d8e;
+  /* margin-left: 2px; */
+
+
+}
+
+li:hover {
+  background: #f1e67d;
+  color: #000000;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  /* padding: 14px 12px; */
+  padding-top: 10px;
+  text-decoration: none;
+}
+
+
+.active {
+  background-color: #4CAF50;
 }
 
 .container {
@@ -51,11 +132,13 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
-  border: 1px solid;
-  border-radius: 15px;
-  border-color: rgb(255, 255, 255);
+  /* border: 1px solid; */
+  /* border-radius: 15px; */
+  background: #eb6a0f;
+  /* border-color: rgb(255, 255, 255); */
   float: bottom;
   clear: bottom;
+  box-shadow: 1px 1px 10px 10px #6b6b6b63;
 }
 
 .container div {
@@ -71,9 +154,9 @@ h1 {
   color: #fff;
 }
 
-.container div label input[type="checkbox"] {
+/* .container div label input[type="checkbox"] {
   display: none;
-}
+} */
 
 .container div label span {
   position: relative;
@@ -89,6 +172,8 @@ h1 {
   overflow: hidden;
 }
 
+
+
 .container div label span:before {
   content: "";
   position: absolute;
@@ -99,14 +184,21 @@ h1 {
   /* background: rgba(255, 255, 255, .1); */
 }
 
-.container div label input[type="checkbox"]:checked ~ span {
-  background: #eb6a0f;
-  color: #fff;
+
+
+.span {
+  font-weight: 900;
+  font-size: 20px;
+  text-shadow: 2px 2px 2px #ffffff;
 }
 
-.container div label input[type="checkbox"]:hover {
-  background: #fff;
-  color: #eb6a0f;
+.phno {
+  margin-top: 15px;
+  margin-left: 16px;
+  height: 20px;
+  font-size: 17px;
+  background: #f1e67d;
+  font-weight: 900;
 }
 
 /*Text area*/
@@ -118,10 +210,36 @@ h1 {
   flex-wrap: wrap;
   align-content: flex-start;
   border: 1px solid;
-  border-radius: 15px;
+  /* border-radius: 15px; */
   border-color: rgb(255, 255, 255);
   float: bottom;
   clear: bottom;
+  box-shadow: 1px 1px 10px 10px #6b6b6b63;
+
+}
+
+.add {
+  width: 90%;
+  margin: 5px auto 30px;
+  background: #ff6a00;
+  height: 50px;
+
+}
+
+.add input {
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 200px;
+
+}
+
+.one {
+  border-radius: 15px;
+  font-size: 17px;
+  margin: 0;
+  /* padding: 0; */
+  background: #f1e67d;
+
 }
 
 .container1 textarea {
@@ -129,16 +247,16 @@ h1 {
   color: #000000;
   font-size: 25px;
   border: none;
-  border-radius: 17px;
+  /* border-radius: 17px; */
 }
 
 .container2 {
   text-align: center;
 }
 
-.btn {
-  border: 2px solid #eb6a0f;
-  background: #eb6a0f;
+.bttn {
+  border: 2px solid #eb6a0f !important;
+  background: #eb6a0f !important;
   padding: 10px;
   width: 90%;
   font-size: 20px;
@@ -148,16 +266,21 @@ h1 {
   transition: 0.8s;
   overflow: hidden;
   position: relative;
-  border-radius: 10px;
+  /* border-radius: 10px; */
+  box-shadow: 1px 1px 10px 10px #6b6b6b63;
+
 }
 
-.btn:hover {
+.bttn:hover {
   border: 2px solid #ffffff;
-  color: #eb6a0f;
-  background: #fff;
+  /* color: #eb6a0f;
+  background: #f1e67d; */
+  z-index: 600;
+  box-shadow: 3px 3px 1px 1px #6b6b6b63;
+
 }
 
-.btn::before {
+/* .bttn::before {
   content: "";
   position: absolute;
   left: 0;
@@ -168,15 +291,295 @@ h1 {
   transition: 0.8s;
 }
 
-.btn1::before {
+.bttn1::before {
   top: 0;
   border-radius: 0 0 50% 50%;
 }
 
-.btn1:hover ::before {
+.bttn1:hover ::before {
   height: 180%;
-}
+} */
 
 .to {
   margin-top: 100px;
+}
+
+#types label [input=checkbox]:checked {
+  background: #e6965d;
+  font-size: 100px;
+}
+
+.box label [input=checkbox] {
+  background: #000000;
+  font-size: 100px;
+}
+
+
+
+/*
+*
+*
+*DROP-DOWN
+*
+*
+**/
+.multiselect {
+  width: 200px;
+  float: left;
+  /* background: white; */
+  /* border-radius: 10px; */
+
+}
+
+.selectBox {
+  position: relative;
+}
+
+.selectBox select {
+  width: 100%;
+  font-weight: bold;
+  background: #f1e67d;
+  padding: 6px;
+  /* border-radius: 10px; */
+  /* background: white; */
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+}
+
+#types {
+  display: none;
+  border: none;
+}
+
+#types label {
+  display: block;
+
+}
+
+#types label:hover {
+  background-color: #f1e67d;
+
+}
+
+#types2 {
+  display: none;
+  border: none;
+}
+
+#types2 label {
+  display: block;
+}
+
+#types2 label:hover {
+  background-color: #f1e67d;
+}
+
+#types3 {
+  display: none;
+  border: none;
+}
+
+#types3 label {
+  display: block;
+}
+
+#types3 label:hover {
+  background-color: #f1e67d;
+}
+
+#types4 {
+  display: none;
+  border: none;
+}
+
+#types4 label {
+  display: block;
+}
+
+#types4 label:hover {
+  background-color: #f1e67d;
+}
+
+
+
+option {
+  text-decoration: none;
+}
+
+
+/*
+*
+*
+*TABLE
+*
+*
+*
+*/
+
+
+.table {
+  margin-top: 200px;
+
+}
+
+.tg {
+  /* border-collapse: collapse; */
+  /* border-spacing: 100; */
+  margin: auto;
+  min-height: 500px;
+  min-width: 400px;
+}
+
+.tg td {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  /* padding: 25px 100px; */
+  border-style: solid;
+  border-width: 2px;
+  overflow: hidden;
+  word-break: normal;
+  border-color: black;
+}
+
+
+
+.tg .tg-62me {
+  color: #000000;
+  border-color: #000000;
+  text-align: left;
+  /* vertical-align: middle; */
+  width: 25%;
+  height: 20%;
+}
+
+.photo {
+  height: 200px;
+  width: 160px;
+  /* margin: auto; */
+  text-align: center;
+  margin-left: 42px;
+}
+
+.t-center {
+  text-align: center;
+  font-size: 25px;
+  z-index: 100;
+}
+
+.loanb {
+  margin-left: 95px;
+  float: left;
+
+}
+
+.loanb button {
+  float: left;
+  /* width: 45%; */
+  margin-left: 0px;
+  margin-top: 3px;
+  padding: 7px;
+  padding-left: 90px;
+  padding-right: 90px;
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+.accept {
+  background: green;
+  float: left;
+
+  color: white;
+}
+
+.reject {
+  background: red;
+  float: left;
+  color: white;
+}
+
+.cont1 {
+  margin-top: 200px;
+  margin-left: 50px;
+  float: left;
+}
+
+.cont1 div {
+  /* float: inherit; */
+  width: 250px;
+  /* margin-left: 100px; */
+}
+
+.orange {
+  color: #eb6a0f;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+
+/*
+*
+*
+*MODAL
+*
+*
+*/
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 50000;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  /* overflow: auto; */
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  height: 75%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+p {
+  margin-top: 16px;
 }
