@@ -56,8 +56,8 @@ def sms_reply():
     reply = fetch_reply(msg, phone_no)
 
     # Create reply
-   if language != "en":
-       reply = translator.translate(reply, dest=language).text
+    if language != "en":
+        reply = translator.translate(reply, dest=language).text
     resp = MessagingResponse()
     resp.message(reply)
 
