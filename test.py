@@ -7,13 +7,13 @@ from reply import fetch_reply
 from twilio.rest import Client
 translator = Translator()
 
-msg = "नमस्ते"
+msg = "naamaste"
 language = translator.detect(msg).lang
 if(translator.detect(msg).lang != "en"):
     
     msg = translator.translate(msg).text
 # phone_no = request.form.get('From')
-reply = fetch_reply(msg, "whatsapp:+919677051645")
+reply = fetch_reply(msg, "000000")
 
 # Create reply
 if language != "en":

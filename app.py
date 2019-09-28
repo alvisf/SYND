@@ -15,18 +15,21 @@ auth_token = '749bf3da242c6716be74bf2e1465805f'
 client = Client(account_sid, auth_token)
 
 
-def send_msg(x):
+def send_msg(x,y):
     # client credentials are read from TWILIO_ACCOUNT_SID and AUTH_TOKEN
 
     # this is the Twilio sandbox testing number
     from_whatsapp_number = 'whatsapp:+14155238886',
     # print(from_whatsapp_number)
     # replace this number with your own WhatsApp Messaging number
-    to_whatsapp_number = 'whatsapp:+919677051645'
+    if y is None:
+        to_whatsapp_number = 'whatsapp:+919677051645'
+    else:
+        to_whatsapp_number = 'whatsapp:+91'+ str(y)
 
     client.messages.create(body=x,
                            from_=from_whatsapp_number,
-                           to=to_whatsapp_number)
+                           to=to_whatsapp_number,media_url=["https://demo.twilio.com/owl.png"] )
 
 
 app = Flask(__name__, template_folder='templates')
@@ -38,17 +41,29 @@ def index():
 
 @app.route("/", methods=['POST'])
 def sendingmsg():
+    phnum = None
     msg = request.form['text']
-
-    send_msg(msg)
+    phnum = request.form['text']
+    send_msg(msg,phnum)
     return render_template('index.html')
 
-
+int num_media
 @app.route("/sms", methods=['POST'])
 def sms_reply():
     """Respond to incoming calls with a simple text message."""
     # Fetch the message
     msg = request.form.get('Body')
+
+
+    num_media = int(request.values.get("NumMedia"))
+    response = MessagingResponse()
+    if not num_media:
+        msg = response.message("Send us an image!")
+    else:
+        msg = response.message("Thanks for the image(s).")
+    msg.media(num_media)
+
+
     language = translator.detect(msg).lang
     if(translator.detect(msg).lang != "en"):
         msg = translator.translate(msg).text
