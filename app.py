@@ -1,12 +1,12 @@
 from twilio.rest import Client
 from flask import Flask, request, render_template, url_for
 from twilio.twiml.messaging_response import MessagingResponse
-
+from googletrans import Translator
 from reply import fetch_reply
 
 from twilio.rest import Client
-
-phn = 919677051645
+translator = Translator()
+# phn = 919677051645
 
 # Your Account Sid and Auth Token from twilio.com/console
 # DANGER! This is insecure. See http://twil.io/secure
@@ -20,7 +20,7 @@ def send_msg(x):
 
     # this is the Twilio sandbox testing number
     from_whatsapp_number = 'whatsapp:+14155238886',
-    print(from_whatsapp_number)
+    # print(from_whatsapp_number)
     # replace this number with your own WhatsApp Messaging number
     to_whatsapp_number = 'whatsapp:+919677051645'
 
@@ -49,10 +49,15 @@ def sms_reply():
     """Respond to incoming calls with a simple text message."""
     # Fetch the message
     msg = request.form.get('Body')
+    if(translator.detect(msg).lang != "en"):
+        language = translator.detect(msg).lang
+        msg = translator.translate(msg).text
     phone_no = request.form.get('From')
     reply = fetch_reply(msg, phone_no)
 
     # Create reply
+    if language != "en":
+        reply = translator.translate(reply, dest='hi')
     resp = MessagingResponse()
     resp.message(reply)
 
